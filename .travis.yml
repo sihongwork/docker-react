@@ -1,0 +1,9 @@
+sudo: required
+services:
+        - docker
+
+before_install:
+        - docker build -t sihonglu/docker-react -f Dockerfile.dev .
+
+script:
+        - docker run sihonglu/docker-react npm run test -- --coverage
